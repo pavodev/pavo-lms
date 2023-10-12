@@ -7,8 +7,6 @@ export default function Home() {
   return (
     <div>
       <p>This is a protected page</p>
-      <UserButton afterSignOutUrl="/" />
-      <ModeToggle></ModeToggle>
     </div>
   );
 }
