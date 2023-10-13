@@ -19,23 +19,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-      }}
-    >
-      <html lang="en">
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            disableTransitionOnChange
+    <html lang="en">
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <ClerkProvider
+            appearance={{
+              baseTheme: dark,
+              elements: {
+                card: "bg-white text-accent-foreground dark:bg-background",
+                headerTitle: "text-accent-foreground",
+                headerSubtitle: "text-accent-foreground",
+                dividerText: "text-accent-foreground",
+                dividerLine: "bg-zinc-500/20",
+                formFieldLabel: "text-accent-foreground",
+                formFieldInput:
+                  "text-accent-foreground border-zinc-500/20 bg-transparent",
+                formButtonPrimary: "bg-primary",
+                socialButtonsBlockButton:
+                  "text-accent-foreground border-zinc-500/20",
+                userButtonPopoverCard:
+                  "bg-white text-accent-foreground dark:bg-background dark:border-[1px] dark:border-zinc-500/20",
+                userButtonPopoverActionButtonIcon: "text-primary",
+                userPreviewMainIdentifier: "text-accent-foreground",
+                userPreviewSecondaryIdentifier: "text-primary",
+                userButtonPopoverActionButtonText: "text-accent-foreground",
+                userButtonPopoverFooter: "text-primary d-hidden",
+                footerActionText: "text-accent-foreground",
+                footerActionLink: "text-primary",
+              },
+            }}
           >
             <ToastProvider />
             {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          </ClerkProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
